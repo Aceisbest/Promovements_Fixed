@@ -103,9 +103,9 @@ namespace Promovements_Fixed
             #region action menu
             
             ActionMenuPage actionPage = new("ProMovements", Icons.Tab);
-            ActionMenuToggle button = new(actionPage, "Fly", (e) => ToggleFly);
-            ActionMenuToggle button2 = new(actionPage, "Jetpack", (e) => ToggleInfJump);
-            ActionMenuToggle button = new(actionPage, "Raycast Teleport", (e) => ToggleRayCast);
+            ActionMenuToggle button = new(actionPage, "Fly", ToggleFly);
+            ActionMenuToggle button2 = new(actionPage, "Jetpack", ToggleInfJump);
+            ActionMenuToggle button = new(actionPage, "Raycast Teleport", ToggleRayCast);
             
             #endregion
             
