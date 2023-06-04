@@ -99,14 +99,22 @@ namespace Promovements_Fixed
 
 
             #endregion
-
-
+            
+            #region action menu
+            
+            ActionMenuPage actionPage = new("ProMovements", Icons.Tab);
+            ActionMenuToggle button = new(actionPage, "Fly", (e) => ToggleFly);
+            ActionMenuToggle button2 = new(actionPage, "Jetpack", (e) => ToggleInfJump);
+            ActionMenuToggle button = new(actionPage, "Raycast Teleport", (e) => ToggleRayCast);
+            
+            #endregion
+            
             #region Toggles<3
             var Sad = Move.AddCategory("Stuff<3");
 
             Sad.AddToggle("Fly<3", " ", ToggleFly,Color);
             Sad.AddToggle("Jetpack<3", " ", ToggleInfJump, Color);
-            Sad.AddToggle("RayCast Tp<3", " ", ToggleRatCast, Color);
+            Sad.AddToggle("RayCast Tp<3", " ", ToggleRayCast, Color);
 
 
 
@@ -139,54 +147,14 @@ namespace Promovements_Fixed
         #region :3
         internal static void ToggleFly(bool value)
             {
-            if (Fly.FlyOn)
-                {
-                Fly.FlyOn = false;
-                Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = true;
-              
-
-
-                }
-            else
-                {
-                Fly.FlyOn = true;
-                Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = false;
-               
-                }
+            Fly.Flyon = value;
+            Player.prop_Player_0.gameObject.GetComponent<CharacterController>().enabled = !value;
             }
 
-        internal static void ToggleInfJump(bool value)
-            {
-            if (Fly.infjump)
-                {
-                Fly.infjump = false;
-                
+        internal static void ToggleInfJump(bool value) => Fly.infjump = value;
+            
+        internal static void ToggleRayCast(bool value) => Fly.TapTp = value;
 
-
-                }
-            else
-                {
-                Fly.infjump = true;
-               
-                }
-
-
-            }
-        internal static void ToggleRatCast(bool value)
-            {
-            if (Fly.TapTp)
-                {
-                Fly.TapTp = false;
-
-
-
-                }
-            else
-                {
-                Fly.TapTp = true;
-
-                }
-            }
         #endregion
         }
 
